@@ -24,9 +24,6 @@ DEPEND="
 "
 
 src_prepare() {
-	#upstream does not support its own shared libraries, let's fix that
-	eapply -l "${FILESDIR}/${PN}"-autoconf_shared_libs.patch
-
 	#makefile was created with 1.16, let's regenerate it
 	eautoreconf
 	eapply_user
