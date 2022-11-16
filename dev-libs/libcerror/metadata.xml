@@ -5,7 +5,4 @@
 		<email>unknown@pentoo.ch</email>
 		<name>Author Unknown</name>
 	</maintainer>
-	<use>
-    	<flag name="winapi">enable WINAPI support for cross-compilation</flag>
-	</use>
 </pkgmetadata>
