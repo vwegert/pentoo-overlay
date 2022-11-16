@@ -33,6 +33,12 @@ src_configure() {
 	econf $(use_enable nls) \
 		$(use_with nls libiconv-prefix) \
 		$(use_with nls libintl-prefix)
-		# \
-		#--with-libcerror
+
+#  --disable-shared-libs   disable shared library support
+# not supported in the ebuild at the moment - kind of defeats the entire process
+
+#  --enable-winapi         enable WINAPI support for cross-compilation
+#                          [default=auto-detect]
+# not supported in the ebuild at the moment - requires windows.h, does not make much sense for us
+
 }
