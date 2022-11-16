@@ -10,15 +10,24 @@ SRC_URI="https://github.com/libyal/libcerror/releases/download/${PV}/${PN}-beta-
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 x86"
-IUSE="nls"
+IUSE="nls winapi"
 
-DEPEND="nls? ( virtual/libiconv
-	virtual/libintl )"
+DEPEND="
+	nls? (
+		virtual/libiconv
+		virtual/libintl
+	)
+"
 RDEPEND="${DEPEND}"
 
-#  --disable-rpath         do not hardcode runtime library paths
 src_configure() {
-	econf $(use_enable nls) \
+	econf \
+		$(use_enable nls) \
 		$(use_with nls libiconv-prefix) \
-		$(use_with nls libintl-prefix)
+		$(use_with nls libintl-prefix) \
+		$(use_enable winapi)
+
+#  --disable-shared-libs   disable shared library support
+# not supported in the ebuild at the moment - kind of defeats the entire process
+
 }
