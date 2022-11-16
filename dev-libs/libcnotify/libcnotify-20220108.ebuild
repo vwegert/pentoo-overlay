@@ -11,7 +11,7 @@ SRC_URI="https://github.com/libyal/libcnotify/releases/download/${PV}/${PN}-beta
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 x86"
+KEYWORDS="amd64 ~arm64 x86"
 IUSE="nls"
 
 DEPEND="

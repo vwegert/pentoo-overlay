@@ -13,7 +13,7 @@ SRC_URI="https://github.com/libyal/libfwnt/releases/download/${PV}/${PN}-alpha-$
 
 LICENSE="LGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 x86"
+KEYWORDS="amd64 ~arm64 x86"
 IUSE="debug nls python +threads winapi"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
