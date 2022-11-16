@@ -12,7 +12,7 @@ SRC_URI="https://github.com/libyal/libcdata/releases/download/${PV}/${PN}-alpha-
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 x86"
-IUSE="nls"
+IUSE="nls +threads"
 
 DEPEND="
 	dev-libs/libcerror
@@ -32,7 +32,16 @@ src_prepare() {
 RDEPEND="${DEPEND}"
 
 src_configure() {
-	econf $(use_enable nls) \
+	econf \
+		$(use_enable nls) \
 		$(use_with nls libiconv-prefix) \
-		$(use_with nls libintl-prefix)
+		$(use_with nls libintl-prefix) \
+		$(use_enable threads multi-threading-support)
+
+#  --disable-shared-libs   disable shared library support
+# not supported in the ebuild at the moment - kind of defeats the entire process
+
+#  --enable-winapi         enable WINAPI support for cross-compilation
+#                          [default=auto-detect]
+# not supported in the ebuild at the moment - requires windows.h, does not make much sense for us
 }
