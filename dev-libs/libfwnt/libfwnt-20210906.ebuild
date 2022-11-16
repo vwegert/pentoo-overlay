@@ -14,7 +14,7 @@ SRC_URI="https://github.com/libyal/libfwnt/releases/download/${PV}/${PN}-alpha-$
 LICENSE="LGPL-3"
 SLOT="0"
 KEYWORDS="amd64 ~arm64 x86"
-IUSE="debug nls python +threads winapi"
+IUSE="debug nls python +threads"
 
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
@@ -53,7 +53,6 @@ src_configure() {
 		$(use_enable nls) \
 		$(use_with nls libiconv-prefix) \
 		$(use_with nls libintl-prefix) \
-		$(use_enable winapi) \
 		$(use_enable debug verbose-output) \
 		$(use_enable debug debug-output) \
 		$(use_enable threads multi-threading-support) \
@@ -63,4 +62,7 @@ src_configure() {
 #  --disable-shared-libs   disable shared library support
 # not supported in the ebuild at the moment - kind of defeats the entire process
 
+#  --enable-winapi         enable WINAPI support for cross-compilation
+#                          [default=auto-detect]
+# not supported in the ebuild at the moment - requires windows.h, does not make much sense for us
 }
