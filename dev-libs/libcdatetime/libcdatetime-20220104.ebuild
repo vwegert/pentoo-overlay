@@ -46,5 +46,5 @@ src_configure() {
 src_install() {
 	default
 	# see https://projects.gentoo.org/qa/policy-guide/installed-files.html#pg0303
-	find "" -name '*.la' -delete || die
+	find "${ED}" -name '*.la' -delete || die
 }
